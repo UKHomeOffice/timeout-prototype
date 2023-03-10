@@ -89,7 +89,7 @@ router.post('*', function(req, res, next) {
 // If this is not desired, remove or comment out this function.
 router.all('*', function (req, res, next) {
   
-  if ((process.env.NODE_ENV || glitchEnv || 'development').toLowerCase() === 'development') {
+  if ((process.env.NODE_ENV || 'development').toLowerCase() === 'development') {
     console.log(`${req.method}: ${req.url}`)
     console.log(req.session.data)
   }
