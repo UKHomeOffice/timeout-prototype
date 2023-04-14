@@ -1,0 +1,21 @@
+{% set serviceName = "Identity and verification" %}
+{% extends "umd-layout-two-thirds.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "../auk2/ask-type"
+}) }}
+{% endblock %}
+
+{% block innerContent %}
+
+  <h1 class="govuk-heading-l">
+    You do not need to provide new photos
+  </h1>
+
+  <p>You can only provide new photos if we have requested them from you.</p>
+  <p>If you have already provided photos, we will check them and contact you with a decision on your application.</p>
+  <p>If you need to provide documents for your application, go back and select 'evidence'.</p>
+
+{% endblock %}

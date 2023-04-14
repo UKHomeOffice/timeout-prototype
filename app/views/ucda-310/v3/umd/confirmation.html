@@ -1,0 +1,36 @@
+{% extends "umd-layout-two-thirds.html" %}
+
+{% block innerContent %}
+
+{% if (data['request'] == "both") %}
+  {{ govukPanel({
+  titleText: "You have submitted your photos",
+  html: "We have sent you confirmation emails"
+  }) }}
+{% else %}
+  {{ govukPanel({
+  titleText: "You have submitted your photo",
+  html: "We have sent you a confirmation email"
+  }) }}
+{% endif %}
+
+  <h2 class="govuk-heading-m govuk-!-margin-top-6">What happens next</h2>
+
+  <p>We will look at the {% if (data['request'] == "both") %}photos{% else %}photo{% endif %} and contact you with a decision on your application, or to ask for more evidence.</p>
+
+  <p>
+    <a href="../auk2/home?with-request=false">Go to account home</a>
+  </p>
+
+  <p>
+    <a href="../dead-ends/not-in-prototype">What did you think about this service?</a>
+    (takes 30 seconds)
+  </p>
+
+  {{ govukButton({
+  text: "Sign out",
+  href: "../dead-ends/not-in-prototype",
+  classes: "govuk-button--secondary govuk-!-margin-top-6"
+}) }}
+
+{% endblock %}

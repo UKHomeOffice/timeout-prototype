@@ -1,0 +1,51 @@
+{% set serviceName = "" %}
+{% extends "umd-layout-two-thirds.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  href: "ask-receive-code"
+}) }}
+{% endblock %}
+
+{% block innerContent %}
+
+<form action="/" method="get" novalidate>
+  <input type="hidden" name="updated-contact" value="false">
+  <input type="hidden" name="with-helper" value="false">
+
+  {{ govukCaption({text: "Sign in"}) }}
+
+  {% call govukFieldset({
+    legend: {
+      text: "Check your email",
+      classes: "govuk-fieldset__legend--l",
+      isPageHeading: true
+    }
+  }) %}
+
+    <p>We've sent you a single-use, 6-digit security code to:</p>
+
+    <p><strong>s*********s@mywork.com</strong></p>
+    
+    <p>It may take a few minutes to arrive.</p>
+
+    {{ govukInput({
+      label: {
+        text: "Security code"
+      },
+      classes: "govuk-input--width-10"
+    }) }}
+
+    {{ govukButton({
+      text: "Continue",
+      classes: "govuk-!-margin-top-2"
+    }) }}
+
+    <p><a href="#">Resend code</a></p>
+
+    <p><a href="ask-receive-code">I cannot access that email – use phone instead</a></p>
+
+  {% endcall %}
+</form>
+
+{% endblock %}

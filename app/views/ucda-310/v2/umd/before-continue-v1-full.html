@@ -1,0 +1,53 @@
+{% extends "umd-layout-two-thirds.html" %}
+
+{% block innerContent %}
+
+  <h1 class="govuk-heading-l">
+    Before you continue
+  </h1>
+
+  <p>Use this service to prove your identity or provide evidence when updating your information with the Home office.</p>
+  <p>Complete the following steps:</p>
+
+  <h2 class="govuk-heading-m">
+    1. Provide a new photo of yourself
+  </h2>
+  <p>Your will need to:</p>
+  <ol class="govuk-list govuk-list--number">
+    <li>Read our guidelines on taking a photo of yourself</li>
+    <li>Take and upload the photo.</li>
+    <li>Check the photo meets our guidelines.</li>
+    <li>Submit the photo.</li>
+  </ol>
+  <p>You can either take a selfie or get someone to take a photo of you using a smartphone, tablet or digital camera.</p>
+  <p>If you prefer, you can get a digital photo from a ophoto shop or photo booth.</p>
+
+  <h2 class="govuk-heading-m">
+    2. Provide a new photo of your identity document
+  </h2>
+  <p>Your will need to:</p>
+  <ol class="govuk-list govuk-list--number">
+    <li>Read our guidelines on taking a photo of your identity document.</li>
+    <li>Take and upload the photo.</li>
+    <li>Check the photo meets our guidelines.</li>
+    <li>Submit the photo.</li>
+  </ol>
+  <p>You can use a smartphone, tablet or digital camera to take a photo of your identity document or a scanner to make a copy.</p>
+
+  {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+  {{ govukWarningText({
+    text: "You can take as long as you like but the service will time out if you do not do anything for 10 minutes.",
+    iconFallbackText: "Warning"
+  }) }}
+
+  <p>If the service times out, or if you leave before completing all the sections, your information will not be saved and you will need to start again.</p>
+
+
+{{ govukButton({
+  text: "Continue",
+  href: "../gidv/prepare-photo",
+  classes: "govuk-!-margin-top-2"
+}) }}
+
+{% endblock %}

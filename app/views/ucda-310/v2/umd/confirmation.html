@@ -1,0 +1,31 @@
+{% extends "umd-layout-two-thirds.html" %}
+
+{% block innerContent %}
+
+  {{ govukPanel({
+  titleText: "You have submitted your photos",
+  html: "We have sent you a confirmation email"
+}) }}
+
+  <h2 class="govuk-heading-m govuk-!-margin-top-6">What happens next</h2>
+
+  <p>We will look at the photos you have provided for your Student visa.</p>
+
+  <p>We will contact you to tell you if your application has been successful, or to ask for more evidence.</p>
+
+  <p>
+    <a href="../?with-request=false">Go to account home</a>
+  </p>
+
+  <p>
+    <a href="/dead-ends/not-in-prototype">What did you think of this service?</a>
+    (takes 30 seconds)
+  </p>
+
+  {{ govukButton({
+  text: "Sign out",
+  href: "https://gov.uk",
+  classes: "govuk-button--secondary govuk-!-margin-top-6"
+}) }}
+
+{% endblock %}

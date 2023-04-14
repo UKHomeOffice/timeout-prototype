@@ -1,0 +1,25 @@
+{% set serviceName = "" %}
+{% extends "umd-layout-two-thirds.html" %}
+
+{% block innerContent %}
+
+<form action="router/submission-error" method="post" novalidate="novalidate">
+
+    <h1 class="govuk-heading-xl">Sorry, there is a problem with the service</h1>
+    <p>We could not save your photo because of a technical error.</p>
+    <p>You must provide your photo again.</p>
+
+<!-- if identity doc / if single -->
+
+  {{ govukButton({
+  text: "Provide your photo again",
+  classes: "govuk-!-margin-top-2"
+}) }}
+
+<p class="govuk-body">
+  <a class ="govuk-link" href="#">Finish and leave service</a>
+</p>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% set serviceName = "" %}
+{% extends "umd-layout-two-thirds.html" %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+tag: {
+  text: "alpha"
+},
+html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+{{ govukBackLink({
+text: "Back",
+href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block innerContent %}
+
+  <form action="router/umd/ask-type" method="post" novalidate="novalidate">
+
+    {{ govukRadios({
+  name: "ask-type",
+  fieldset: {
+    legend: {
+      text: "What do you want to provide?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      text: "Evidence",
+      hint: {
+        text: "Documents for your application, for example consent forms, medical documents or bank statements."
+      }
+    },
+    {
+      text: "Photos",
+      hint: {
+        text: "New photos of yourself or your identity document."
+      },
+      value: "photos"
+    }
+  ]
+}) }}
+
+    {{ govukButton({
+    text: "Continue",
+classes: "govuk-!-margin-top-2"
+  }) }}
+
+  </form>
+
+{% endblock %}

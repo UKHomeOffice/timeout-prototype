@@ -1,0 +1,40 @@
+{% set serviceName = "" %}
+{% extends "umd-layout-two-thirds.html" %}
+
+{% block innerContent %}
+
+  <form action="ask-passport" method="post" novalidate="novalidate">
+
+    {{ govukCaption({text: "Sign in"}) }}
+
+    {{ govukRadios({
+  name: "ask-document",
+  fieldset: {
+    legend: {
+      text: "What identity document did you use in your application?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "If you have updated your identity document since you applied, you must use the details of the updated document to sign in."
+  },
+  items: [
+    {
+      text: "Passport"
+    },
+    {
+      text: "National identity card"
+    },
+    {
+      text: "Biometric residence card or permit"
+    }
+  ]
+}) }}
+
+    {{ govukButton({
+    text: "Continue"
+  }) }}
+  </form>
+
+{% endblock %}

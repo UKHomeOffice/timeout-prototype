@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+  tag: {
+    text: "alpha"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-xl">
+    Take a photo of yourself
+  </h1>
+
+  <h2 class="govuk-heading-m">
+    Photo rules
+  </h2>
+  <p>Your photo must be:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>different to the one in your identity document</li>
+    <li>recently taken (no more than a month old)</li>
+    <li>in colour</li>
+    <li>vertical (portrait)</li>
+  </ul>
+
+  <p>You must not:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>use effects or filters</li>
+    <li>wear a head covering (unless it is for religious or medical reasons)</li>
+    <li>have any objects or other people in the photo</li>
+    <li>have glare or reflections from any glasses - take them off if you can</li>
+  </ul>
+
+  <h2 class="govuk-heading-m">
+    When taking a photo
+  </h2>
+
+  <p>Make sure you follow these guidelines:</p>
+
+  <img src="https://assets.publishing.service.gov.uk/media/5b8d4e26ed915d74f4c75c34/examples_of_passport_photos.png" class="govuk-!-margin-bottom-6"/>
+
+  <p>
+    <a href="upload-photo.html">
+      <button class="govuk-button" data-module="govuk-button">
+        Continue to upload photo
+      </button>
+    </a>
+  </p>
+
+{% endblock %}

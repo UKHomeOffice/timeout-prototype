@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+  {{ govukBackLink({
+    href: "problem-service",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper">
+
+    {% block content %}
+
+    <form action="/eua/ask-document" method="post" novalidate="novalidate">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">Your session has timed out</h1>
+          <p class="govuk-body">We have reset this service because you have not been active for 10 minutes. We did this to keep your information secure.</p>
+          <p class="govuk-body">To start again you must sign in to your UK Visas and Immigration account.</p>
+          <p class="govuk-body">You will then need to select 'Your details' if you are updating your details, or 'Applications' if you need to continue an application.</p>
+        </div>
+      </div>
+
+          {{ govukButton({
+            text: "Sign in",
+            href: "../eua/ask-document?timeout=false",
+            classes: "govuk-!-margin-top-2 govuk-button--secondary"
+          }) }}
+
+        </div>
+
+
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}

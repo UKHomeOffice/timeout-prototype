@@ -1,0 +1,245 @@
+{% set serviceName = "UCDA-310" %}
+{% set productName = "Prototype" %}
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Chip check plus (CC+)</h1>
+
+
+    <p>A caseworker can request that a customer uploads a new photo of themselves, their ID or both. The customer would of originally provided them either during:<p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          an application submission
+        </li>
+        <li>
+          a like-for-like or biographic update in UMD
+        </li>
+      </ul>
+      <p class="govuk-body">Around 34% of cases fail the automatic identity verification and need manual review (this is called chip checker). A portion of these will require new photos to be received by caseworkingn in order to make a decision.</p>
+      <p>Once a decision is made, the 'identity' is sent for RIS checks, suitability assessment and then a visa decision (if relevant).</p>
+      <p class="govuk-body govuk-!-margin-bottom-1">The four automatic checks carried out are:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>chip check</li>
+        <li>MRZ comparison</li>
+        <li>Video liveness</li>
+        <li>Facial matching</li>
+      </ul>
+
+      <p class="govuk-body govuk-!-margin-bottom-9"><a href="#related">Go to related links</a> and caseworking journey.</p>
+  </div>
+</div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-m govuk-!-margin-top-6">Design work</h2><br>
+
+      <p>Designs for handover, changes following testing of technical constraints</p>
+      <p>See Jira ticket for full user journey flow, content for notifications and further context <a href="https://jira.bics-collaboration.homeoffice.gov.uk/browse/UCDA-466">UCDA-466</a></p>
+      <p><strong>Note: press 'clear data' in the footer after looking at each journey to 'reset it</strong></p>
+      <br>
+      <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">Overall technical constraints:</p>
+      <ol class="govuk-list govuk-list--number">
+        <li>dashboard can't show requests</li>
+        <li>GIDV needs to hand back to a submit page in calling service</li>
+        <li>GIDV can't capture both selfie and ID doc in one go, separate email notifications.</li>
+        <li>system knows the customer's UAN but not their type of visa.</li>
+        <li>There is a long delay from the dashboard to 'what you need to do' or 'you do not need to provide new photos'</li>
+        <li>GIDV has limited error handling around image submission errors, relies on handing back to client with no customer information saved</li>
+      </ol>
+      <p><a href="https://jira.bics-collaboration.homeoffice.gov.uk/browse/UCDA-466">UCDA-466</a></p>
+      <br>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" width="20%">Designs</th>
+            <th scope="col" class="govuk-table__header" width="65%">Description</th>
+            <th scope="col" class="govuk-table__header">Last updated</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <!-- Row -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="v3/eua/ask-document?request=selfie&&with-request=true">'Photo of yourself'</a>
+        </td>
+          <td class="govuk-table__cell">
+            <p>From EUA, through to AUK2, UMD, GIDV, UMD and AUK2</p>
+            <p>Caseworking (PRS) has requested the user upload a new photo of <strong>themselves</strong>.</p>
+          </td>
+          <td class="govuk-table__cell">19/11/2020</td>
+        </tr>
+          <!-- Row -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="v3/eua/ask-document?request=identity&&with-request=true">'Photo of your identity document'</a>
+        </td>
+          <td class="govuk-table__cell">
+            <p>From EUA, through to AUK2, UMD, GIDV, UMD and AUK2</p>
+            <p>Caseworking (PRS) has requested the user upload a new photo of their <strong>identity document</strong>.</p>
+          </td>
+          <td class="govuk-table__cell">19/11/2020</td>
+        </tr>
+          <!-- Row -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="v3/eua/ask-document?request=both&&with-request=true"> Both photos</a>
+        </td>
+          <td class="govuk-table__cell">
+            <p>From EUA, through to AUK2, UMD, GIDV, UMD and AUK2</p>
+            <p>Caseworking (PRS) has requested the user upload new photos of <strong>both</strong> themselves AND their identity document</p>
+          </td>
+          <td class="govuk-table__cell">19/11/2020</td>
+        </tr>
+        <!-- Row -->
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="v3/umd/loading">Loading spinner</a>
+      </td>
+        <td class="govuk-table__cell">
+          <p>To communicate system delay between AUK2 and UMD (tech constraint 5).</p>
+          <p>See Jira ticket for full detail on desired interaction <a href="https://jira.bics-collaboration.homeoffice.gov.uk/browse/UCDA-475">UCDA-475</a></p>
+        </td>
+        <td class="govuk-table__cell">26/11/2020</td>
+      </tr>
+      <!-- Row -->
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">System error page</td>
+        <td class="govuk-table__cell">
+          <p>GIDV is unable to send more detailed error messages or retry image submission a few times before handing back to client, UMD (tech constraint 6). Customer has to go back through the journey and reupload image before trying to submit again. This was not tested. Full context and journey in <a href="https://jira.bics-collaboration.homeoffice.gov.uk/browse/UCDA-490">UCDA-490</a>.</p>
+          <br>
+          <br>
+          <p><a href="v3/umd/submission-error?error=selfie">Error with selfie submission</a></p>
+          <p><a href="v3/umd/submission-error?error=identity">Error with identity document submission</a></p>
+        </td>
+        <td class="govuk-table__cell">3/12/2020</td>
+      </tr>
+        </tbody>
+      </table>
+
+
+      <br>
+      <br>
+
+  <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Previous iterations
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" width="20%">Design</th>
+            <th scope="col" class="govuk-table__header" width="65%">Description</th>
+            <th scope="col" class="govuk-table__header">Last updated</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <!-- Row -->
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="v2/index">Iteration 2</a></td>
+            <td class="govuk-table__cell">
+              <p>Design and testing of technical constraints.</p>
+              <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">Overall technical constraints:</p>
+              <ol class="govuk-list govuk-list--number">
+                <li>dashboard can't show requests</li>
+                <li>GIDV needs to hand back to a submit page in calling service</li>
+              </ol>
+              <p><a href="https://jira.bics-collaboration.homeoffice.gov.uk/browse/UCDA-439">UCDA-439</a></p>
+            </td>
+            <td class="govuk-table__cell">12/11/2020</td>
+          </tr>
+          <!-- Row -->
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="v1/index">Iteration 1</a></td>
+            <td class="govuk-table__cell">
+              <p>Intial prototype for this flow without technical constraints. Dashboard has requests and alerts showing dynamically and no inbetween calling between GIDV and UMD for dual photo update journey.</p>
+              <p><a href="https://jira.bics-collaboration.homeoffice.gov.uk/browse/UCDA-310">UCDA-310</a></p>
+            </td>
+            <td class="govuk-table__cell">Oct 2020</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <br>
+  <br>
+  <br>
+
+    <h2 class="govuk-heading-m"><a id="related"></a>Related links</h2>
+    {{ govukTable({
+        head: [
+          {
+            text: "Description"
+          },
+          {
+            text: "Link"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: '<p>Figma screenflow for CC+</p>'
+            },
+            {
+              html: '<p><a href="https://www.figma.com/file/MHTft40BbGnk5nRiRKNZOF/UMD-Chip-Check-Plus-CC-options?node-id=163%3A117">Figma flow</a></p>'
+            }
+          ],
+          [
+            {
+              text: "Caseworking stock phrases for email communication with customers"
+            },
+            {
+              html: '<p><a href="https://jira.bics-collaboration.homeoffice.gov.uk/browse/UCDA-479">UCDA 479</a></p>'
+            }
+          ],
+          [
+            {
+              html: '<p>CC+ caseworking in PRS (Stage 2: identity verification)</p><p><p><a href="https://jira.bics-collaboration.homeoffice.gov.uk/browse/UCDA-404">Jira UCDA-404</a></p>'
+            },
+            {
+              html: '<p><a href="https://update-my-details-atlas.herokuapp.com">View prototype</a></p>'
+            }
+          ],
+          [
+            {
+              text: "Confluence page for UMD front and back-end and COD back-end work"
+            },
+            {
+              html: '<p><a href="https://confluence.bics-collaboration.homeoffice.gov.uk/pages/viewpage.action?pageId=240137208">View</a></p>'
+            }
+          ],
+          [
+            {
+              text: "Confluence page caseworking architecture"
+            },
+            {
+              html: '<p><a href="https://confluence.bics-collaboration.homeoffice.gov.uk/pages/viewpage.action?pageId=202507056">View</a></p>'
+            }
+          ],
+          [
+            {
+              text: "Confluence page stage 2 CC+ caseworking"
+            },
+            {
+              html: '<p><a href="https://confluence.bics-collaboration.homeoffice.gov.uk/pages/viewpage.action?pageId=157248569">View</a></p>'
+            }
+          ]
+        ]
+      }) }}
+
+
+  </div>
+</div>
+
+{% endblock %}

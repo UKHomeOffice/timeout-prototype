@@ -1,0 +1,106 @@
+{% set serviceName = "Confirm your identity" %}
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+  tag: {
+    text: "alpha"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+  {{ govukBackLink({
+    href: "upload-photo",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper">
+
+    {% block content %}
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          {{ govukRadios({
+            idPrefix: "which-document-using",
+            name: "which-document-using",
+            fieldset: {
+              legend: {
+                text: "Which identity document are you using?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Passport",
+                text: "Passport"
+              },
+              {
+                value: "National identity card",
+                text: "National identity card"
+              },
+              {
+                value: "Biometric residence card",
+                text: "Biometric residence card"
+              },
+              {
+                value: "Biometric residence permit",
+                text: "Biometric residence permit"
+              }
+            ]
+          }) }}
+
+          <!-- <p> -->
+            <a href="/gidv/prepare-photo-passport">
+              <button class="govuk-button" data-module="govuk-button">
+                Continue
+              </button>
+            </a>
+          <!-- </p> -->
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                What is a biometric residence card?
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p>You have a biometric residence card if it says either:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>‘Residence card’ at the top</li>
+                <li>‘Residence card of a family member of a union citizen’ at the bottom</li>
+                <li>‘Residence card issued under EEA regulations’ at the bottom</li>
+                <li>‘EU right to reside’ on the back</li>
+                <li>‘Permanent residence’, ‘EU family member’ or ‘Derivative residence’ at the bottom</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                What is a biometric residence permit?
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p>You have a biometric residence permit if it shows your:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>name, date and place of birth</li>
+                <li>fingerprints and a photo of your face (your biometric information)</li>
+                <li>immigration status and any conditions of your stay</li>
+              </ul>
+            </div>
+          </details>
+
+        </div>
+
+
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}

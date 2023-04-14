@@ -1,0 +1,49 @@
+{% extends "umd-layout-two-thirds.html" %}
+
+{% block innerContent %}
+
+<form action="router/umd/what-need" method="post" novalidate="novalidate">
+
+  <h1 class="govuk-heading-l">
+   What you need to do
+  </h1>
+
+<p>We have asked you to:</p>
+{% if (data['request'] == "selfie") %}
+  <ul class="govuk-list govuk-list--bullet">
+   <li>provide a new photo of yourself</li>
+  </ul>
+{% endif %}
+
+{% if (data['request'] == "identity") %}
+  <ul class="govuk-list govuk-list--bullet">
+   <li>provide a new photo of your identity document</li>
+  </ul>
+{% endif %}
+
+{% if (data['request'] == "both") %}
+<ul class="govuk-list govuk-list--bullet">
+ <li>provide a new photo of yourself</li>
+ <li>provide a new photo of your identity document</li>
+</ul>
+{% endif %}
+
+  <p>You will see the photo guidelines when you continue.</p>
+
+  {{ govukWarningText({
+    text: "If you do not do anything for 10 minutes, the service will time out.",
+    iconFallbackText: "Warning"
+  }) }}
+
+  <p>If the service times out, anything you have not submitted will not be saved and you will need to start again.</p>
+
+
+
+  {{ govukButton({
+  text: "Continue",
+  classes: "govuk-!-margin-top-2"
+  }) }}
+
+  </form>
+
+{% endblock %}

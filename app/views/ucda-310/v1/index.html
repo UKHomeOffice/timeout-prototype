@@ -1,0 +1,75 @@
+{% extends "../_account-layout.html" %}
+{% set accountHeaderNew = "true" %}
+
+{% block content %}
+
+  {{ hoAccountHeaderCC({active: "applications"}) }}
+
+  {% if (data['with-request'] != "false") %}
+
+    {{ hoAlert({heading: "Provide new photo", body: "We need you to provide a new photo of yourself for your <a href='#app-1'>Student visa application</a>"}) }}
+
+  {% endif %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl"></span>
+
+      <h2 class="govuk-heading-xl">
+        Your applications
+      </h2>
+
+      <div class="ho-listing-container">
+
+        <div class="ho-listing-item">
+          <h3 class="govuk-heading-l" id="app-1">Student visa</h3>
+          <p>
+            <strong>
+              Started:
+            </strong>
+            21 August 2020
+          </p>
+          <p>
+            <strong>
+              Unique application number:
+            </strong>
+            UAN 1234456778
+          </p>
+          {% if (data['with-request'] != "false") %}
+            <a href="gidv/prepare-photo" class="govuk-button  govuk-!-margin-right-1" data-module="govuk-button">
+              Provide new photo
+            </a>
+          {% endif %}
+
+        </div>
+
+        <div class="ho-listing-item">
+          <h3 class="govuk-heading-l">Skilled worker visa</h3>
+          <p>
+            <strong>
+              Started:
+            </strong>
+
+            9 September 2020
+          </p>
+          <p>
+            <strong>
+              Unique application number:
+            </strong>UAN 29504456778
+          </p>
+          <a href="/dead-ends/stop" class="govuk-button  govuk-!-margin-right-1" data-module="govuk-button">
+            Continue application
+          </a>
+          <a href="/dead-ends/stop" class="govuk-button govuk-button--secondary " data-module="govuk-button">
+            Delete
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock %}

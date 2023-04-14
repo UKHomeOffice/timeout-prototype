@@ -1,0 +1,64 @@
+{% set serviceName = "Confirm your identity" %}
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+  tag: {
+    text: "alpha"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+  {{ govukBackLink({
+    href: "check-photo",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper">
+
+    {% block content %}
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-l">
+            Check before you continue
+          </h1>
+
+          <p>
+            You need to check the details you have provided are correct before you continue.
+          </p>
+          <br>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-5">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Photo of yourself</dt>
+            <dd class="govuk-summary-list__value">
+              <p>Selfie.jpg</p>
+              <img src="/public/images/selfie-{{(data['applicant'] if data['applicant'] else 'daryl-m')}}.jpg" width="60%">
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden">
+                  photo of yourself</span>
+              </a>
+            </dd>
+          </div>
+          </dl>
+          <div class="govuk-inset-text">
+            You will not be able to change your details after you submit and continue.
+          </div>
+          <p>
+            <a href="../gidv/prepare-photo-passport">
+              <button class="govuk-button" data-module="govuk-button">
+                Submit and continue
+              </button>
+            </a>
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}

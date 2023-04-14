@@ -1,0 +1,18 @@
+{% extends "umd-layout-two-thirds.html" %}
+
+{% block innerContent %}
+
+  <h1 class="govuk-heading-l">
+    Submit your photos
+  </h1>
+
+  <p>You must complete this step to submit your photos.</p>
+</p>
+
+{{ govukButton({
+  text: "Submit",
+  href: "confirmation",
+  classes: "govuk-!-margin-top-2"
+}) }}
+
+{% endblock %}

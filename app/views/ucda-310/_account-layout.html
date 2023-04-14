@@ -1,0 +1,38 @@
+{% from "macros.njk" import govukCaption %}
+{% from "macros.njk" import hoAccountHeader %}
+{% from "macros.njk" import hoAccountHeaderCC %}
+{% from "macros.njk" import hoAlert %}
+
+{% extends "layout.html" %}
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "/ucda-488/detached/cookies",
+          text: "Cookies"
+        },
+        {
+          href: "https://www.gov.uk/government/publications/personal-information-use-in-borders-immigration-and-citizenship",
+          text: "Privacy"
+        },
+        {
+          href: "/ucda-488/detached/accessibility",
+          text: "Accessibility"
+        },
+        {
+          href: "/ucda-488/_admin",
+          text: "Prototype admin",
+          classes: "govuk-!-font-weight-bold"
+        },
+        {
+          href: "/prototype-admin/clear-data",
+          text: "Clear data"
+        }
+      ]
+    }
+  }) }}
+
+
+{% endblock %}

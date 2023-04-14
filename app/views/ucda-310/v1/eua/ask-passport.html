@@ -1,0 +1,37 @@
+{% set serviceName = "" %}
+{% extends "umd-layout-two-thirds.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  href: "ask-document"
+}) }}
+{% endblock %}
+
+{% block innerContent %}
+
+<form action="ask-dob" method="post" novalidate>
+
+  {{ govukCaption({text: "Sign in"}) }}
+
+  {{ govukInput({
+    label: {
+      text: "What is your passport number?",
+      classes: "govuk-label--l",
+      isPageHeading: true
+    },
+    hint: {
+      text: "Can contain letters for example, 120382978A"
+    }
+  }) }}
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+  {{ govukDetails({
+    summaryText: "If you do not have your passport number",
+    html: "Use our <a href='#'>enquiry form</a> to tell us you do not have your passport number."
+  }) }}
+</form>
+
+{% endblock %}

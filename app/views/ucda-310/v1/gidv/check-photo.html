@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+  tag: {
+    text: "alpha"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+  {{ govukBackLink({
+    href: "upload-photo",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper">
+
+    {% block content %}
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-xl">
+            Check the photo of yourself
+          </h1>
+
+          <p>Make sure the photo meets our guidelines before you submit it.</p>
+
+          <h2 class="govuk-heading-m">
+            Photo rules
+          </h2>
+          <p>Your photo must be:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>different to the one in your identity document</li>
+            <li>recently taken (no more than a month old)</li>
+            <li>in colour</li>
+            <li>vertical (portrait)</li>
+          </ul>
+
+          <p>You must not:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>use effects or filters</li>
+            <li>wear a head covering (unless it is for religious or medical reasons)</li>
+            <li>have any objects or other people in the photo</li>
+            <li>have glare or reflections from any glasses - take them off if you can</li>
+          </ul>
+
+          <h2 class="govuk-heading-m">
+            Photo guidelines
+          </h2>
+
+          <img src="https://assets.publishing.service.gov.uk/media/5b8d4e26ed915d74f4c75c34/examples_of_passport_photos.png" class="govuk-!-margin-bottom-6"/>
+
+          <br>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="meet-guidelines">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Does the photo meet our guidelines?
+                </h1>
+              </legend>
+              <div>
+                <p>
+                  The quality of the photo you submit is your responsibility. We may not be able to process your request if it does not meet our guidelines.
+                </p>
+              </div>
+              <div class="govuk-radios govuk-radios--inline">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="changed-name">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                    No - I want to upload another photo
+                  </label>
+                </div>
+              </div>
+
+            </fieldset>
+          </div>
+
+          <p>
+            <a href="../chip-check-plus/confirmation">
+              <button class="govuk-button" data-module="govuk-button">
+                Continue
+              </button>
+            </a>
+          </p>
+
+        </div>
+
+        <div class="govuk-grid-column-one-third">
+          <div class="image-playback">
+            <img src="/public/images/selfie-{{(data['applicant'] if data['applicant'] else 'samuel')}}.jpg" width="100%" height="100%">
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}

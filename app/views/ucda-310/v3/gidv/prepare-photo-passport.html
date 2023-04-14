@@ -1,0 +1,68 @@
+{% set serviceName = "Confirm your identity" %}
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+  tag: {
+    text: "alpha"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+{% endblock %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    {% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Take a photo of your passport
+    </h1>
+
+    <h2 class="govuk-heading-m">Document information</h2>
+
+        <p>The photo must show:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>all your personal details (including the photo of you)</li>
+          <li>all 4 corners of the passport</li>
+          <li>the machine-readable zone</li>
+        </ul>
+
+        <p>
+          The machine-readable zone is at the bottom of your passport and on the
+          same page as your personal information.
+        </p>
+
+        <p>
+          <img src=/public/images/passport-guidance.png padding-bottom="30px" width="100%">
+        </p>
+
+        <h2 class="govuk-heading-m">Quality</h2>
+
+        <p>The photo must be:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>clear and in focus</li>
+          <li>in colour</li>
+          <li>unaltered by effect or filters</li>
+          <li>without glare or reflections</li>
+          <li>horizontal (landscape)</li>
+          <li>an original photo - photocopies are not allowed</li>
+        </ul>
+
+        <br>
+
+        <a href="upload-photo-passport.html">
+          <button class="govuk-button" data-module="govuk-button">
+            Continue to upload photo
+          </button>
+        </a>
+      </div>
+  </div>
+
+{% endblock %}
+</main>
+</div>

@@ -1,0 +1,59 @@
+{% set serviceName = "Confirm your identity" %}
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+  tag: {
+    text: "alpha"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+  {{ govukBackLink({
+    href: "prepare-photo-passport",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-l">
+    Upload a photo of your passport
+  </h1>
+
+  <p>You will be able to check your photo meets the guidelines on the next page.</p>
+
+  {{ govukFileUpload({
+      id: "file-upload-1",
+      name: "file-upload-1",
+      label: {
+        text: "Upload a photo",
+        classes: "govuk-label--m"
+      }
+    }) }}
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          What format should my photo be?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <p>The photo must be:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>a jpg or jpeg file</li>
+          <li>at least 600px by 750px</li>
+          <li>at least 50KB and no more than 6MB</li>
+        </ul>
+      </div>
+    </details>
+
+  <p>
+    <a href="check-photo-passport.html">
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </a>
+  </p>
+
+{% endblock %}
