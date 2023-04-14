@@ -1,12 +1,12 @@
 {
   "scripts": {
-    "dev": "home-office-govuk-prototype-kit dev",
-    "serve": "home-office-govuk-prototype-kit serve",
-    "start": "home-office-govuk-prototype-kit start"
+    "dev": "govuk-prototype-kit dev",
+    "serve": "govuk-prototype-kit serve",
+    "start": "govuk-prototype-kit start"
   },
   "dependencies": {
-    "@govuk-prototype-kit/common-templates": "^1.0.0",
+    "@govuk-prototype-kit/common-templates": "^1.1.1",
     "govuk-frontend": "^4.5.0",
-    "home-office-govuk-prototype-kit": "^0.2.0"
+    "govuk-prototype-kit": "^13.6.0"
   }
 }
