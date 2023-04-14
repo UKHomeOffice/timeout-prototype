@@ -1,8 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-Home – {{serviceName}} – GOV.UK Prototype Kit
-{% endblock %}
+{% set pageName="Home" %}
 
 {% block content %}
 
@@ -15,7 +13,6 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
       {{ serviceName }}
     </h1>
 
-  
     {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
   </div>
 </div>
