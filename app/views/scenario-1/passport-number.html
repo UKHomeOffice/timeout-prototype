@@ -1,0 +1,26 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">Sign in</span>
+    <h1 class="govuk-heading-l">What is your passport number? </h1>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="national-insurance-number">
+        Passport number 
+      </label>
+      <div id="passport-number-hint" class="govuk-hint">
+        Can contain letters for example, 502135326A </div>
+      <input class="govuk-input govuk-input--width-10" id="national-insurance-number" name="national-insurance-number" type="text" spellcheck="false" aria-describedby="national-insurance-number-hint">
+    </div>
+
+    <button class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+   
+  </div>
+</div>
+
+{% endblock %}
