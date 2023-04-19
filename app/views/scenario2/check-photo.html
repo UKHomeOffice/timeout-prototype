@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper">
+          <h1 class="govuk-heading-l">
+            Check your photo
+          </h1>
+
+          <div class="panel panel-border-wide alert-success govuk-body govuk-!-margin-bottom-6">
+            <h2 class="govuk-heading-s">Our automated checks suggest</h2>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>your photo meets our guidelines</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="meet-guidelines">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h2 class="govuk-fieldset__heading">
+                  Do you want to use this photo?
+                </h2>
+                </legend>
+                <p>
+                  The quality of the photo you submit is your responsibility. We may not be able to process your request if it does not meet our guidelines.
+                </p>
+                <div class="govuk-radios govuk-radios--inline">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="check-photo-automatic" name="check-photo-automatic3" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="changed-name">
+                      Yes, I want to use this photo
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="changed-name-2" name="check-photo-automatic3" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                      No - I want to upload another photo
+                    </label>
+                  </div>
+                </div>
+            </fieldset>
+          </div>
+          <div>
+            <p>
+              <a href="stop">
+                <button class="govuk-button" data-module="govuk-button">
+                  Continue
+                </button>
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div class="govuk-grid-column-one-third">
+
+          <aside class="app-related-items" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+              Your photo
+            </h2>
+            <img src="/public/images/selfie-{{(data['applicant'] if data['applicant'] else 'daryl-m')}}.jpg" width="100%" height="100%">
+          </aside>
+
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+{% endblock %}
