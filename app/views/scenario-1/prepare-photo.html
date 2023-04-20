@@ -1,0 +1,90 @@
+{% set serviceName = "Provide a photo" %}
+{% extends "layouts/main.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+<head> 
+  <link rel="stylesheet" href="css/gidv.scss"></head>
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper">
+
+    {% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Provide a photo of yourself</h1>
+
+        <p>We need a photo of your face to confirm your identity.</p>
+
+        <p>Make sure you have:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>a plain light background</li>
+          <li>no objects or people behind you</li>
+        </ul>
+        <div class="photo-guide-photos" aria-hidden="true">
+          <ul>
+            <li>
+              <img src="/public/images/hmpo/adult-photo-background-plain-min.jpg" alt="Use a plain light-coloured background"  
+           >
+              <div class="result">
+                <p class="approved govuk-body-s">Plain light-coloured background</p>
+              </div>
+            </li>
+            <li>
+              <img src="/public/images/hmpo/adult-photo-background-object-min.jpg" alt="No texture or patterns">
+              <div class="photo-guide-photos result approved ">
+                <p class="failed govuk-body-s">Object in background</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+<p class="govuk-body govuk-!-margin-bottom-8"> Your head, shoulders and uppper body must be visible</p>
+
+
+        <p>You also need:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>even lighting</li>
+          <li>no shadows or glare on your face or behind you</li>
+        </ul>
+
+
+
+
+
+        <div class="photo-guide-photos" aria-hidden="true">
+          <ul>
+            <li>
+              <img src="/public/images/hmpo/adult-photo-lighting.jpg" alt="Even lighting and no shadows">
+              <div class="result">
+                <p class="approved govuk-body-s">Even lighting and no shadow</p>
+              </div>
+            </li>
+
+            <li>
+              <img src="/public/images/hmpo/adult-photo-bad-lighting.jpg" alt="No shadows behind you">
+              <div class="result">
+                <p class="failed govuk-body-s">Shadow behind head</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+   
+
+        <p>
+          <a href="upload-photo.html">
+            <button class="govuk-button" data-module="govuk-button">
+              Continue to upload photo
+            </button>
+          </a>
+        </p>
+        </div>
+        </div>
+
+{% endblock %}
