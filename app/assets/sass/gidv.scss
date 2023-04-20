@@ -1,0 +1,195 @@
+@import "node_modules/govuk-frontend/govuk/all";
+#animation-still {
+  width: 85%;
+  height: auto;
+  margin: 10px;;
+}
+
+
+.container-bttn-mobile {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.primary-bttn-mobile {
+  width: 48%;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-left: 2%;
+}
+
+.secondary-bttn-mobile {
+  width: 48%;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-right: 2%;
+}
+
+
+
+//Styling for illustrations
+  .illustration-gidv {
+    // max-width: 500px;
+    padding-bottom: 2em;
+    width: 80%
+  }
+
+
+//resizing images played back for mobile/smaller viewports
+  .gidv-image {
+      @media (max-width: 48.0625em) {
+        width: 80%;
+      }
+      @media (min-width: 48.0625em) {
+        width: 100%;
+      }
+  }
+
+
+// NEW PATTERN resizing images played back for mobile/smaller viewports
+    .gidv-image-new {
+        width: 75%;
+        @include govuk-media-query($from: desktop) {
+            width: 95%;
+        }
+    }
+
+// resizing facial images played back for mobile/smaller viewports
+    .gidv-facial {
+        @media (max-width: 48.0625em) {
+          width: 70%;
+          // height: 100%;
+        }
+        @media (min-width: 48.0625em) {
+          width: 100%;
+          // height: 100%;
+        }
+    }
+
+.gidv-facial-success {
+        @media (max-width: 48.0625em) {
+          width: 70%;
+          // height: 100%;
+        }
+      @include govuk-media-query($from: desktop) {
+          width: 60%;
+          // height: 100%;
+        }
+    }
+
+
+.image-float-right {
+  @include govuk-media-query($from: desktop) {
+      float: right;
+  }
+}
+
+// Styling for the panels and alerts
+  .panel {
+    box-sizing: border-box;
+    clear: both;
+    border-left-style: solid;
+    border-color: #bfc1c3;
+    padding: 0.2em 0.7em;
+    margin-bottom: 0.78947em;
+  }
+
+  h2.govuk-heading-s {
+    margin-bottom: 0.6em;
+    margin-top: 0.6em;
+  }
+
+  .panel-border-wide {
+    border-left-width: 10px;
+  }
+
+  .panel-border-wide.alert-default {
+    border-color: #2b8cc4;
+    background-color: #dbeff9;
+  }
+
+  .panel-border-wide.alert-success {
+    border-color: #28a197;
+    background-color: #c6ece9;
+  }
+
+  .panel-border-wide.alert-error {
+    border-color: #c42b2b;
+    background-color: #f3dede;
+  }
+
+
+//// GIDV - photo guideliness and liveness webcam styles
+
+  .photo-guide-photos ul li {
+       flex: 1;
+       position: relative;
+       box-sizing: border-box;
+       float: left;
+       padding-left: 8px;
+       list-style-type: none;
+   }
+
+  .photo-guide-photos ul{
+       padding-inline-start: 0px;
+   }
+
+
+  h2.guidance {
+      margin-top: 1.25em;
+      margin-bottom: .5em;
+      @media (min-width: 641px) {
+          margin-top: 1.875em;
+          margin-bottom: .83333em;
+      }
+  }
+
+  .photo-guide-photos {
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      ul {
+          display: flex;
+          width: 100%;
+          overflow: hidden;
+          li {
+              flex: 1;
+              margin: 0 2% 0 0;
+              &:last-child {
+                  margin-right: 0;
+              }
+          }
+      }
+      img {
+          width: 100%;
+          vertical-align: bottom;
+      }
+  }
+
+  .photo-guide-photos .result {
+      font-size: 12px;
+      width: 100%;
+      @media (min-width: 641px) {
+          font-size: 16px;
+      }
+      .approved {
+          background-image: url("/public/images/gidv/icon-tick.svg");
+      }
+      .failed {
+          background-image: url("/public/images/gidv/icon-cross.svg");
+      }
+  }
+
+  .photo-guide-photos .result .approved,
+  .photo-guide-photos .result .failed {
+      margin: 0;
+      padding: 4px 0 4px 18px;
+      background-repeat: no-repeat;
+      background-position: left 0 top 4px;
+      background-size: 14px;
+      @media (min-width: 641px) {
+          padding: 8px 0 8px 30px;
+          background-position: left 0 top 6px;
+          background-size: 22px;
+      }
+    }

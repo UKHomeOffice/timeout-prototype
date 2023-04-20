@@ -1,50 +1,82 @@
-{% set serviceName = "Confirm your identity" %}
+{% set serviceName = "Provide a photo" %}
 {% extends "layouts/main.html" %}
 
 {% block beforeContent %}
-  {{ govukPhaseBanner({
-  tag: {
-    text: "alpha"
-  },
-  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+{{ govukBackLink({
+  href: "javascript: window.history.go(-1)"
 }) }}
 {% endblock %}
-
+<head> 
+  <link rel="stylesheet" href="css/gidv.scss"></head>
 <div class="govuk-width-container">
 
   <main class="govuk-main-wrapper">
 
     {% block content %}
- 
+
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-l">Take a photo of yourself</h1>
+        <h1 class="govuk-heading-l">Provide a photo of yourself</h1>
 
-        <h2 class="govuk-heading-m">Photo rules</h2>
-        <p>The photo must be:</p>
+        <p>We need a photo of your face to confirm your identity.</p>
+
+        <p>Make sure you have:</p>
         <ul class="govuk-list govuk-list--bullet">
-          <li>different to the one in your identity document</li>
-          <li>recently taken (no more than 3 months old)</li>
-          <li>in colour</li>
-          <li>vertical (portrait)</li>
-          <li>a jpg or jpeg file</li>
+          <li>a plain light background</li>
+          <li>no objects or people behind you</li>
+        </ul>
+        <div class="photo-guide-photos" aria-hidden="true">
+          <ul>
+            <li>
+              <img src="/public/images/hmpo/adult-photo-background-plain-min.jpg" alt="Use a plain light-coloured background"  
+           >
+              <div class="result">
+                <p class="approved govuk-body-s">Plain light-coloured background</p>
+              </div>
+            </li>
+            <li>
+              <img src="/public/images/hmpo/adult-photo-background-object-min.jpg" alt="No texture or patterns">
+              <div class="photo-guide-photos result approved ">
+                <p class="failed govuk-body-s">Object in background</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+<p class="govuk-body govuk-!-margin-bottom-8"> Your head, shoulders and uppper body must be visible</p>
+
+
+        <p>You also need:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>even lighting</li>
+          <li>no shadows or glare on your face or behind you</li>
         </ul>
 
-        <p>You must not:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>use effects or filters</li>
-          <li>wear a head covering (unless it is for religious or medical reasons)</li>
-          <li>have any objects or other people in the photo</li>
-          <li>have glare or reflections from any glasses - take them off if you can</li>
-        </ul>
 
-        <h2 class="govuk-heading-m">When taking a photo</h2>
 
-        <p>Make sure you follow these guidelines when either taking a selfie or getting someone to take a photo of you:</p>
 
-        <img src="https://assets.publishing.service.gov.uk/media/5b8d4e26ed915d74f4c75c34/examples_of_passport_photos.png" class="govuk-!-margin-bottom-6" width="100%"/>
+
+        <div class="photo-guide-photos" aria-hidden="true">
+          <ul>
+            <li>
+              <img src="/public/images/hmpo/adult-photo-lighting.jpg" alt="Even lighting and no shadows">
+              <div class="result">
+                <p class="approved govuk-body-s">Even lighting and no shadow</p>
+              </div>
+            </li>
+
+            <li>
+              <img src="/public/images/hmpo/adult-photo-bad-lighting.jpg" alt="No shadows behind you">
+              <div class="result">
+                <p class="failed govuk-body-s">Shadow behind head</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+   
 
         <p>
           <a href="upload-photo.html">
