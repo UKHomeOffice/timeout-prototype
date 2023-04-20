@@ -1,0 +1,21 @@
+{% set serviceName = "" %}
+{% extends "layouts/account.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-l">
+    Dead end
+  </h1>
+
+  <p>Click the back link at the top to get back to the scenario.</p>
+
+ 
+
+{% endblock %}
