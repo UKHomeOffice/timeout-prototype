@@ -4,3 +4,12 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 #}
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% block bodyEnd %}
+  {% block scripts %}
+  <script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/jquery-accessible-modal.js"></script>
+
+    {% block pageScripts %}{% endblock %}
+  {% endblock %}
+{% endblock %}
