@@ -1,0 +1,74 @@
+//MODAL DIALOGUE
+dialog {
+	display: block;
+  margin: 0;
+}
+.no-scroll-html {
+	overflow: hidden;
+}
+.no-scroll {
+	overflow: hidden;
+}
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background: #000;
+	opacity: .8;
+	z-index: 666;
+	cursor: pointer;
+}
+.modal {
+	font-family: "GDS Transport", arial, sans-serif;
+	font-weight: 400;
+	text-transform: none;
+	line-height: 1.25;
+	-webkit-font-smoothing: antialiased;
+    position: fixed;
+  z-index: 667;
+  max-width: 280px;
+  min-width: 200px;
+  padding: 30px;
+  background: #fff;
+  border: 3px solid #000000;
+    left: 50%;
+    top: 25%;
+    -ms-transform: translate(-50%,-25%);
+    -moz-transform:translate(-50%,-25%);
+    -webkit-transform: translate(-50%,-25%);
+     transform: translate(-50%,-25%);
+}
+@media (min-width: 641px) {
+	.modal {
+		font-size: 19px;
+		line-height: 1.31579;
+  	min-width: 580px;
+	}
+  .modal-button {
+    float: left;
+    padding-right: 15px;
+  }
+  .modal-link {
+    display: inline-block;
+    padding-top: 10px;
+  }
+
+  .modal-link-2 {
+    display: inline-block;
+    padding-top: 10px;
+  }
+}
+@media (min-height: 300px) {
+	.modal {
+    top: 25%;
+	}
+}
+  .modal-link {
+    display: block;
+  }
+
+.no-wrap {
+  white-space: nowrap;
+}

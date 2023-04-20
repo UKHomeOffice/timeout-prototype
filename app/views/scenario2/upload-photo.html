@@ -16,7 +16,9 @@
 {% endblock %}
 
 {% block content %}
-
+<script type="text/javascript">
+  document.getElementById("#thebutton").click()​​​;​
+</script>
 
   <h1 class="govuk-heading-l">
     Upload a photo of yourself
@@ -58,5 +60,27 @@
     </a>
   </p>
 
+  <script type="text/javascript">
+    time = 10;
+  interval = setInterval(function() {
+      time--;
+      document =  time
+      if (time == 0) {
+          // stop timer
+          clearInterval(interval);
+          // click
+          document.getElementById('label_modal_1').click();
+      }
+  }, 1200)
+  </script>
+
+<p>
+<a href="#" class="js-modal" 
+data-modal-text=" <p>For security, you will be signed out in <span style='font-weight: bold; white-space:nowrap;'>5 minutes</span>.</p>" 
+data-modal-title="You're about to be signed out" 
+data-modal-close-route="signed-out"
+data-modal-close-text="Continue on this page" 
+data-modal-close-title="Close this window">Sign out</a>
+</p>
 
 {% endblock %}

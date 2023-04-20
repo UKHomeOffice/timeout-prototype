@@ -15,7 +15,7 @@
   <main class="govuk-main-wrapper">
 
     {% block content %}
-
+ 
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
@@ -53,6 +53,31 @@
             </button>
           </a>
         </p>
+
+        <script type="text/javascript">
+          time = 10;
+        interval = setInterval(function() {
+          console.log('it triggers!!')
+          console.log('time', time);
+            time--;
+            document =  time
+            if (time == 0) {
+                // stop timer
+                clearInterval(interval);
+                // click
+                document.getElementById('label_modal_1').click();
+            }
+        }, 1200)
+        </script>
+
+<p>
+  <a href="#" class="js-modal" 
+      data-modal-text=" <p>For security, you will be signed out in <span style='font-weight: bold; white-space:nowrap;'>5 minutes</span>.</p>" 
+      data-modal-title="You're about to be signed out" 
+      data-modal-close-route="signed-out"
+     data-modal-close-text="Continue on this page" 
+     data-modal-close-title="Close this window">Sign out</a>
+ </p>
         </div>
         </div>
 
