@@ -1,0 +1,111 @@
+.ho-account-signout {
+    position: relative;
+    margin: 0 auto 0 auto;
+    max-width: 960px;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        position: absolute;
+        top: -70px;
+        right: 20px;
+
+        @media (min-width: 40.0625em) {
+          top: -90px;
+        }
+
+        @media screen and (min-width: 640px) {
+            right: 40px !important;
+        }
+
+        @media screen and (min-width: 1024px) {
+            right: 0px !important;
+        }
+    }
+}
+
+.ho-account-header {
+    margin-top: -2rem;
+    margin-bottom: 2rem;
+
+    @media (min-width: 40.0625em) {
+      margin-top: -3.2rem;
+    }
+
+    .account-title {
+        background-color: #e8e8e8;
+        padding: 15px 0 13px 15px;
+        border-bottom: 1px solid #b1b4b6;
+
+        h1 {
+            font-family: "nta", arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-weight: 100;
+            font-size: 1.4em;
+        }
+    }
+
+    .account-navigation {
+        border-bottom: 1px solid #b1b4b6;
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li.active a {
+            border-left: 5px solid #1d70b8;
+            text-decoration: none;
+            color: rgb(11, 12, 12);
+
+            @media screen and (min-width: 460px) {
+                border-bottom: 5px solid #1d70b8;
+                border-left: none;
+            }
+        }
+
+        li {
+            list-style: none;
+            display: block;
+            padding: 0;
+
+            @media screen and (min-width: 460px) {
+                display: inline-block;
+            }
+
+            a {
+                display: block;
+                padding: 15px 13px;
+                font-size: 1.1875rem;
+            }
+        }
+    }
+
+}
+
+.ho-listing-container {
+    .ho-listing-item {
+        margin-bottom: 1rem;
+    }
+
+    .ho-listing-item:not(:first-child) {
+        border-top: #b1b4b6 1px solid;
+        padding: 2rem 0 2rem 0;
+    }
+}
+
+.ho-card {
+    margin: 0 0 1rem 0;
+    padding: 1.4rem 1.4rem 1rem 1.4rem;
+    border: #D9DADB 1px solid;
+
+    @media screen and (min-width: 460px) {
+        padding: 2rem 2rem 1.2rem 2rem;
+    }
+}
+
+.govuk-main-wrapper--no-spacing {
+    padding: 0 !important;
+}
