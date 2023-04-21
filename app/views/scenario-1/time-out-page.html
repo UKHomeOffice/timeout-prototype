@@ -6,17 +6,18 @@
   <div class="govuk-grid-column-two-thirds">
     <div class="govuk-warning-text">
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-      <strong class="govuk-warning-text__text">
+      <strong class="govuk-warning-text__text" style="padding-bottom:px">
         <span class="govuk-warning-text__assistive">Warning</span>
-        <h1 class="govuk-heading-l">You will be signed out soon</h1>
+        <h1 class="govuk-heading-l" style="margin-bottom: 3px">You will be signed out soon</h1>
       </strong>
     </div>
-
+    <form action="upload-photo" method="post" novalidate="novalidate" spellcheck="false">
     <p class="govuk-body">You have been inactive for 30 minutes.</p>
 
     <p class="govuk-body">To protect your information, your progress will be saved and you will be signed out in 5 minutes.</p>
 
-    <div class="govuk-button-group">
+    <div class="govuk-button-group" action="upload-photo">
+
       <button class="govuk-button govuk-!-margin-top-4"  data-module="govuk-button">
         Stay signed in
       </button>
