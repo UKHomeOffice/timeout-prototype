@@ -16,9 +16,6 @@
 {% endblock %}
 
 {% block content %}
-<script type="text/javascript">
-  document.getElementById("#thebutton").click()​​​;​
-</script>
 
   <h1 class="govuk-heading-l">
     Upload a photo of yourself
@@ -53,7 +50,7 @@
   </details>
 
   <p>
-    <a href="check-photo.html">
+    <a href="../stop">
       <button class="govuk-button" data-module="govuk-button">
         Continue
       </button>
@@ -61,6 +58,19 @@
   </p>
 
   <script type="text/javascript">
+    redirectFunction = () => {
+      newTime = 30;
+      interval2 = setInterval(function() {
+      newTime--;
+      document =  newTime
+      if (time == 0) {
+          // stop timer
+          clearInterval(interval2);
+          // redirect to page
+          window.location.replace("signed-out");
+      }
+      }, 1200)
+    }
     time = 10;
   interval = setInterval(function() {
       time--;
@@ -70,17 +80,22 @@
           clearInterval(interval);
           // click
           document.getElementById('label_modal_1').click();
+          redirectFunction();
       }
   }, 1200)
   </script>
 
 <p>
 <a href="#" class="js-modal" 
-data-modal-text=" <p>For security, you will be signed out in <span style='font-weight: bold; white-space:nowrap;'>5 minutes</span>.</p>" 
-data-modal-title="You're about to be signed out" 
-data-modal-close-route="signed-out"
-data-modal-close-text="Continue on this page" 
-data-modal-close-title="Close this window">Sign out</a>
+data-modal-text="<p>You have not done anything on this page for a while. To protect your information, it will time out in  <span style='font-weight: bold; white-space:nowrap;'>5 minutes</span>.</p>
+
+<p>If that happens, you will need to enter your information again.</p>" 
+data-modal-title="You will be timed out soon" 
+data-modal-close-text="Stop time out"  </a>
 </p>
 
+
+<!-- data-modal-close-route="signed-out"
+data-modal-close-text="Stop time out" 
+data-modal-close-title="Close this window" -->
 {% endblock %}
