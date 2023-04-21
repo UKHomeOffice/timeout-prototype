@@ -72,3 +72,48 @@ dialog {
 .no-wrap {
   white-space: nowrap;
 }
+
+
+/// custom warning icon realignment
+
+.govuk-warning-text__icon_custom {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  box-sizing: border-box;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  min-width: 35px;
+  min-height: 35px;
+  margin-top: -7px;
+  border: 3px solid #0b0c0c;
+  border-radius: 50%;
+  color: #ffffff;
+  background: #0b0c0c;
+  font-size: 30px;
+  line-height: 29px;
+  text-align: center;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  forced-color-adjust: none;
+}
+@media print {
+  .govuk-warning-text__icon_custom {
+    font-family: sans-serif;
+  }
+}
+@media (min-width: 40.0625em) {
+  .govuk-warning-text__icon_custom {
+    margin-top: 2px;
+  }
+}
+@media screen and (forced-colors: active) {
+  .govuk-warning-text__icon_custom {
+    border-color: windowText;
+    color: windowText;
+    background: transparent;
+  }
+}
