@@ -25,7 +25,6 @@ jQuery(document).ready(function($) {
 
     });
     
-    console.log('hiiii')
     // jQuery formatted selector to search for focusable items
     var focusableElementsString = "a[href], area[href], input:not([type='hidden']):not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
 
