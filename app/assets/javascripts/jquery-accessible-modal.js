@@ -88,7 +88,7 @@ jQuery(document).ready(function($) {
             $modal_code += '<span class="' + $modal_prefix_classes + 'modal-close__text">' + $modal_close_text + '</span>';
         }
         $modal_code += '</button></div>';
-        $modal_code += '<div class="modal-link"><a href="' + $modal_close_route + '">Sign out</a></div>';
+        // $modal_code += '<div class="modal-link"><a href="' + $modal_close_route + '">Sign out</a></div>'; //
         $modal_code += '</div></div></div></' + $modal_tag + '>';
 
 
