@@ -22,41 +22,40 @@
     Upload a photo of yourself
   </h1>
 
-  <p>You will be able to check your photo meets the guidelines on the next page.</p>
+ 
+    <p>The photo must be:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>different to the one in your identity document</li>
+      <li>recently taken (no more than 3 years old)</li>
+      <li>vertical (portrait)</li>
+      <li>a jpg or jpeg file</li>
+    </ul>
+
+    <p>The must no:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>upload a photo of another photo</li>
+      <li>use any effects or filters</li>
+    </ul>
+  
+
 
   {{ govukFileUpload({
-      id: "file-upload-1",
-      name: "file-upload-1",
-      label: {
-        text: "Upload a photo",
-        classes: "govuk-label--m"
-      }
+      id: "file-upload",
+      name: "file-upload"
+     
     }) }}
 
-  <details class="govuk-details" data-module="govuk-details">
-    <summary class="govuk-details__summary">
-      <span class="govuk-details__summary-text">
-        What format should my photo be?
-      </span>
-    </summary>
-    <div class="govuk-details__text">
-      <p>The photo must be:</p>
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li>a jpg or jpeg file</li>
-        <li>at least 600px by 750px</li>
-        <li>at least 50KB and no more than 6MB</li>
-      </ul>
-    </div>
-  </details>
 
-  <p>
+ 
     <a href="check-photo.html">
       <button class="govuk-button" data-module="govuk-button">
         Continue
       </button>
     </a>
-  </p>
+
 
 
 {% endblock %}
