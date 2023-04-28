@@ -1,3 +1,4 @@
+{% set serviceName = "Apply for a skilled worker visa" %}
 {% extends "layouts/main.html" %}
 
 {% block content %}
@@ -14,14 +15,14 @@
     <form action="upload-photo" method="post" novalidate="novalidate" spellcheck="false">
     <p class="govuk-body">You have been inactive for 30 minutes.</p>
 
-    <p class="govuk-body">To protect your information, your progress will be saved and you will be signed out in 5 minutes.</p>
+    <p class="govuk-body">To protect your information, your progress will be saved and you will be signed out in <strong>5 minutes</strong>.</p>
 
     <div class="govuk-button-group" action="upload-photo">
 
       <button class="govuk-button govuk-!-margin-top-4"  data-module="govuk-button">
         Stay signed in
       </button>
-      <a class="govuk-link" href="#">Sign out</a>
+      <a class="govuk-link" href="user-sign-out">Sign out</a>
     </div>
   
 
