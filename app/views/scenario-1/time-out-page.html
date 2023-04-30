@@ -15,11 +15,16 @@
     <form action="upload-photo" method="post" novalidate="novalidate" spellcheck="false">
     <p class="govuk-body">You have been inactive for 30 minutes.</p>
 
-    <p class="govuk-body">To protect your information, your progress will be saved and you will be signed out in <strong>5 minutes</strong>.</p>
+    <p id='timeout--p' class="govuk-body">To protect your information, your progress will be saved and you will be signed out in 
+      <span id='timeout--countdown' style='font-weight: bold; white-space:nowrap;'>3</span>
+      <span id='timeout--countdown-unit' style='font-weight: bold; white-space:nowrap;'>minutes</span>.
+    </p>
+
+    <div id='timeout--announce' role='alert' aria-live='polite' style='position:absolute; width:0; height:0; clip: rect(0,0,0,0);'></div>
 
     <div class="govuk-button-group" action="upload-photo">
 
-      <button class="govuk-button govuk-!-margin-top-4"  data-module="govuk-button">
+      <button id="stay-signed-in" class="govuk-button govuk-!-margin-top-4"  data-module="govuk-button">
         Stay signed in
       </button>
       <a class="govuk-link" href="user-sign-out">Sign out</a>
@@ -28,11 +33,8 @@
 
   </div>
 </div>
-<script>
-  // Page change
-        var timer = setTimeout(function() {
-                  window.location='signed-out.html'
-              }, 300000);
+{% endblock %}
 
-</script>
+{% block pageScripts %}
+  <script src="/public/javascripts/timeout-prototype.js"></script>
 {% endblock %}
