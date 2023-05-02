@@ -1,6 +1,17 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Home" %}
+{% set serviceName = "Apply for a skilled worker visa" %}
+{% block beforeContent %}
+
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a prototype, not a real service.'
+}) }}
+
+{% endblock %}
 
 {% block content %}
 
