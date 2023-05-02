@@ -6,12 +6,26 @@
   @TODO MOSCOW
 
     **** MUST
+    @todo - announce modal.
+    @todo - set focus to modal.
     @todo - confirm and update timings on HTML pages.
+    @todo - where does focus go if modal closes - to where it was before.
+    @todo - should not be able to scroll the page below.
+
+    @todo - Feedback to design system working group:
+
+    Observed JAWS trying to read the full number on passport number hint text:
+      <span id="passport-number-hint" class="govuk-hint">For example, 1208297A</span>
+    For example "1 million, two hundred and eight thousand, two hundred and ninety-seven, A"
 
     **** COULD HAVE (its only a prototype)
+    @todo - Explore extending the time limit - any key to exit? To allow users to understand what they are doing/what the modal is.
+    @todo - Look at what reserve keys might be needed that don't exit the modal in the event any key to exit is introduced.
     @todo - look at when we announce the change to the times on screen reader?
     @todo - minute/second plurals - removing the S when singular.
-
+    
+    **** WOULD HAVE
+    @todo - non-js fallback.
 */
 
 $( document ).ready(function() {
@@ -131,6 +145,7 @@ updateDisplayText = (_val, _unit) => {
   $('#timeout--countdown-unit').text(_unit); 
   if(srAnnounce == true) {
     var _text = $('#timeout--p').text();
+    console.log(_text);
     $('#timeout--announce').text(_text); 
   }
 };
