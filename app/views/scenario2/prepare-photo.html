@@ -1,7 +1,19 @@
 {% set serviceName = "Provide a photo" %}
 {% extends "layouts/main.html" %}
 
+{% set serviceName = "Apply for a skilled worker visa" %}
+
 {% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a prototype, not a real service.'
+}) }}
+
+
+
 {{ govukBackLink({
   href: "javascript: window.history.go(-1)"
 }) }}
