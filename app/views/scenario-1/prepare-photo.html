@@ -2,6 +2,14 @@
 {% extends "layouts/main.html" %}
 
 {% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a prototype, not a real service.'
+}) }}
+
 {{ govukBackLink({
   href: "javascript: window.history.go(-1)"
 }) }}

@@ -3,11 +3,11 @@
 {% extends "layouts/main.html" %}
 
 {% block beforeContent %}
-  {{ govukPhaseBanner({
+{{ govukPhaseBanner({
   tag: {
-    text: "alpha"
+    text: "prototype"
   },
-  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  html: 'This is a prototype, not a real service.'
 }) }}
   {{ govukBackLink({
     href: "prepare-photo",
