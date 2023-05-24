@@ -7,11 +7,10 @@
 
     **** MUST
     @todo - set, confirm and update timings on HTML pages. -> 3 minutes
-    @todo - check readout of full text on coundown - in screenreader (use VO to test)
+    @todo - set timeout on HTML page to be 60secs
     
     **** COULD HAVE (its only a prototype)
     @todo - scroll - lock background scroll
-    @todo - look at when we announce the change to the times on screen reader?
     @todo - minute/second plurals - removing the S when singular.
 
 */
@@ -19,7 +18,7 @@
 $( document ).ready(function() {
   // Initiate page variables.
   MILLISECOND_COUNT = 1000;    // Used for the timers to tick in seconds.
-  TIMEOUT_TIME_SECONDS = 180;  // Time before page times out, in seconds.
+  TIMEOUT_TIME_SECONDS = 5;  // Time before page times out, in seconds.
 
   // Initialise the variables for the countdown from the page.
   // - Can only be set once the modal is visible on the page.
@@ -54,15 +53,20 @@ startPageTimeoutCount = () => {
   modalTrigger = setInterval(function() {
     // reduce the time count by 1 on each tick of the timer.
     _time--;
-    // console.log('time: '+_time);
+    console.log('time: '+_time);
     // When the time count.
     if (_time == 0) {
         // stop timer.
         clearInterval(modalTrigger);
         // set the element with current focus (for tab navigation - so we can return to where we left off).
-        focusElement = $(document.activeElement);
+        // focusElement = $(document.activeElement);
+        // console.log(document.activeElement);
         // trigger a click on the modal - @todo find out why.
-        $('#label_modal_1').click();
+        //$('#label_modal_1').click();
+        console.log(document.activeElement);
+        // add the modal class to the element.
+        $(document.activeElement).addClass('js-modal').click();
+
         // We've timed out so call the redirect function to move on.
         setUpRedirectCountdown();
     }
@@ -161,7 +165,8 @@ resetAll = () => {
   clearInterval(modalTrigger);
   clearInterval(modalTimeout);
   // Set the focus element to be where we left off before the modal.
-  focusElement.focus();
+  // focusElement.focus();
+  // console.log(focusElement);
   // Begin again.
   startPageTimeoutCount();
 };

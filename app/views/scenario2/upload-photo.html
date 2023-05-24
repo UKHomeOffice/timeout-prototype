@@ -45,17 +45,13 @@
 
 {{ govukFileUpload({
     id: "file-upload",
-    name: "file-upload"
-   
+    name: "file-upload"     
   }) }}
 
 
-
   <p>
-    <a href="../stop">
-      <button class="govuk-button" data-module="govuk-button">
+    <a href="../stop" class="govuk-button">
         Continue
-      </button>
     </a>
   </p>
 
@@ -64,8 +60,10 @@
 <!-- Using https://a11y.nicolas-hoffmann.net/modal/ -->
   <a href="#" class="js-modal" data-modal-text="
     <p id='timeout--p'>To protect your information, your progress will be saved and this page will time out in
-      <span id='timeout--countdown' style='font-weight: bold; white-space:nowrap;'>3</span>
-      <span id='timeout--countdown-unit' style='font-weight: bold; white-space:nowrap;'>minutes</span>.
+      <!-- <span id='timeout--countdown' style='font-weight: bold; white-space:nowrap;'>1</span> -->
+      <span id='timeout--countdown' style='font-weight: bold; white-space:nowrap;'>5</span>
+      <span id='timeout--countdown-unit' style='font-weight: bold; white-space:nowrap;'>seconds</span>.
+      <!-- <span id='timeout--countdown-unit' style='font-weight: bold; white-space:nowrap;'>minutes</span>.-->
     </p>
     <div id='timeout--announce' role='alert' aria-live='polite' style='position:absolute; width:0; height:0; clip: rect(0,0,0,0);'></div>
     " 
