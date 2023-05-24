@@ -59,8 +59,7 @@ startPageTimeoutCount = () => {
         // stop timer.
         clearInterval(modalTrigger);
         // set the element with current focus (for tab navigation - so we can return to where we left off).
-        // focusElement = $(document.activeElement);
-        // console.log(document.activeElement);
+        focusElement = $(document.activeElement);
         // trigger a click on the modal - @todo find out why.
         //$('#label_modal_1').click();
         console.log(document.activeElement);
@@ -165,8 +164,8 @@ resetAll = () => {
   clearInterval(modalTrigger);
   clearInterval(modalTimeout);
   // Set the focus element to be where we left off before the modal.
-  // focusElement.focus();
-  // console.log(focusElement);
+  focusElement.focus();
+  console.log(focusElement);
   // Begin again.
   startPageTimeoutCount();
 };
