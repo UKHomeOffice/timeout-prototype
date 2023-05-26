@@ -52,7 +52,7 @@
     if(window.location.pathname == '/scenario-1/time-out-page') {
       // setting static vars here as a quick fix in a hurry.
       MODAL_TIMEOUT_COUNTDOWN_TIME = 180;
-      MODAL_TIMEOUT_TIME_TYPE = 'minutes';
+      MODAL_TIMEOUT_TIME_TYPE = 'seconds';
       setUpRedirectCountdown();
     }   
   });
