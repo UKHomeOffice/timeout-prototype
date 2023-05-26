@@ -17,7 +17,7 @@
   $( document ).ready(function() {
     // Initiate page variables.
     MILLISECOND_COUNT = 1000;    // Used for the timers to tick in seconds.
-    TIMEOUT_TIME_SECONDS = 180;  // Time before page times out, in seconds.
+    TIMEOUT_TIME_SECONDS = 90;  // Time before page times out, in seconds.
 
     MODAL_TIMEOUT_COUNTDOWN_TIME = 60; //countdown number to start at for the modal countdown (seconds or minutes is set by MODAL_TIMEOUT_TIME_TYPE).
     MODAL_TIMEOUT_TIME_TYPE = 'seconds'; // 'minutes'; //Either minutes or seconds
@@ -50,6 +50,9 @@
 
     // If the page timeout, then just activate the text updates.
     if(window.location.pathname == '/scenario-1/time-out-page') {
+      // setting static vars here as a quick fix in a hurry.
+      MODAL_TIMEOUT_COUNTDOWN_TIME = 180;
+      MODAL_TIMEOUT_TIME_TYPE = 'minutes';
       setUpRedirectCountdown();
     }   
   });
@@ -62,7 +65,7 @@
     modalTrigger = setInterval(function() {
       // reduce the time count by 1 on each tick of the timer.
       _time--;
-      // console.log('time: '+_time);
+       //console.log('time: '+_time);
       // When the time count.
       if (_time == 0) {
           // stop timer.
@@ -97,8 +100,8 @@
 
   // Countdown for the redirect on the modal.
   setUpRedirectCountdown = () => {
-    countdownNum = $('#timeout--countdown').text(); // any integer - set from the text on the HTML page.
-    countdownUnit = $('#timeout--countdown-unit').text(); // can only be minutes or seconds.
+    countdownNum = TIMEOUT_TIME_SECONDS;
+    countdownUnit = MODAL_TIMEOUT_TIME_TYPE; // can only be minutes or seconds.
 
     if(countdownUnit == 'minutes') {
       var _mins = countdownNum;
@@ -115,7 +118,7 @@
       // Screenreader announce should always be false on each timer tick, unless conditions are set after this time.
       srAnnounce = false;
 
-      // console.log(_time);
+      //console.log(_time);
       
       // At intervals of 40 and 20 seconds, announce the time remaining.
       if(_time == 40 || _time == 20) {
