@@ -6,9 +6,7 @@
     @TODO MOSCOW
 
       **** MUST
-      @todo - set, confirm and update timings on HTML pages. -> 3 minutes
-      @todo - set modal countdown to 1 min
-      @todo - set timeout on HTML page to be 60secs
+
       
       **** COULD HAVE (its only a prototype)
       @todo - scroll - lock background scroll
@@ -19,9 +17,9 @@
   $( document ).ready(function() {
     // Initiate page variables.
     MILLISECOND_COUNT = 1000;    // Used for the timers to tick in seconds.
-    TIMEOUT_TIME_SECONDS = 5;  // Time before page times out, in seconds.
+    TIMEOUT_TIME_SECONDS = 180;  // Time before page times out, in seconds.
 
-    MODAL_TIMEOUT_COUNTDOWN_TIME = 30; //countdown number to start at for the modal countdown (seconds or minutes is set by MODAL_TIMEOUT_TIME_TYPE).
+    MODAL_TIMEOUT_COUNTDOWN_TIME = 60; //countdown number to start at for the modal countdown (seconds or minutes is set by MODAL_TIMEOUT_TIME_TYPE).
     MODAL_TIMEOUT_TIME_TYPE = 'seconds'; // 'minutes'; //Either minutes or seconds
 
     MODAL_TITLE = 'You will be signed out soon';
@@ -46,9 +44,10 @@
     $focusElement = '';
 
     // If modal page, then start the countdown to show the modal.
-    if(window.location.pathname == '/scenario2/upload-photo') {
+    if(window.location.pathname == '/scenario2/upload-photo' ) {
       startPageTimeoutCount();
     }
+
     // If the page timeout, then just activate the text updates.
     if(window.location.pathname == '/scenario-1/time-out-page') {
       setUpRedirectCountdown();
@@ -63,7 +62,7 @@
     modalTrigger = setInterval(function() {
       // reduce the time count by 1 on each tick of the timer.
       _time--;
-      console.log('time: '+_time);
+      // console.log('time: '+_time);
       // When the time count.
       if (_time == 0) {
           // stop timer.
@@ -77,7 +76,7 @@
           });
           // trigger a click on the modal - @todo find out why.
           //$('#label_modal_1').click();
-          console.log(document.activeElement);
+          // console.log(document.activeElement);
           // If nothing has moved on the page, the active element is HEAD, so do this hacky thing.
           /*
           *
@@ -108,7 +107,7 @@
     }else{
       var _time = countdownNum;
     }
-
+    
     // create a new timer when the redirect function is called to time the redirect.
     modalTimeout = setInterval(function() {
       // reduce newTime count by 1 on each tick of the timer.
@@ -166,7 +165,6 @@
     if(srAnnounce == true) {
       var _text = $('#timeout--p').text();
       $('#timeout--announce').text(_text);
-    //console.log('screenreader: '+_text); 
     }
   };
 
@@ -194,7 +192,7 @@
       'data-modal-text',
       'data-modal-close-title'
     );
-    console.log($focusElement);
+    // console.log($focusElement);
     // Begin again.
     startPageTimeoutCount();
   };
